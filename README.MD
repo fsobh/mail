@@ -4,7 +4,7 @@
 A Golang module for sending emails seamlessly using AWS or SendGrid.
 
 ## Features
-- **AWS SES Integration**: Send transactional or bulk emails via AWS SES.
+- **AWS SES Integration**: Send transactional emails via AWS SES.
 - **Send Grid Support**: Integrate with SendGrid for email delivery.
 - **Simple API**: Easy-to-use interface for developers.
 
