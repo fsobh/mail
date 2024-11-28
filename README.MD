@@ -1,7 +1,7 @@
 
-# Mailing Module for Golang (AWS, Send Grid)
+# Mailing Module for Golang
 
-A Golang module for sending emails seamlessly using AWS or Send Grid.
+A Golang module for sending emails seamlessly using [AWS](https://aws.amazon.com/ses/) or [Send Grid](https://sendgrid.com/).
 
 ## Features
 - **AWS SES Integration**: Send transactional emails via AWS SES.
