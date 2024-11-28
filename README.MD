@@ -54,7 +54,7 @@ func main() {
 	err = mailerSendGrid.SendMail(subject, contentHtml, to, cc, bcc, attachments)
 
 	if err != nil {
-		_ = fmt.Errorf("error sending email via SendGrid: %s", err)
+		_ = fmt.Errorf("error sending email via Send Grid: %s", err)
 	}
 	
 	fmt.Println("Email sent successfully")
