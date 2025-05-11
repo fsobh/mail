@@ -2,6 +2,7 @@ package mail
 
 import (
 	"fmt"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sns"
@@ -39,10 +40,6 @@ func (s *SNSSender) SendBulkSMS(message string, to []string) error {
 			Message:     aws.String(message),
 			PhoneNumber: aws.String(recipient),
 			MessageAttributes: map[string]*sns.MessageAttributeValue{
-				"AWS.SNS.SMS.SenderID": {
-					DataType:    aws.String("String"),
-					StringValue: aws.String(s.SenderID),
-				},
 				"AWS.SNS.SMS.SMSType": {
 					DataType:    aws.String("String"),
 					StringValue: aws.String("Transactional"),
@@ -77,10 +74,6 @@ func (s *SNSSender) sendSingleSMS(message string, to string) error {
 		Message:     aws.String(message),
 		PhoneNumber: aws.String(to),
 		MessageAttributes: map[string]*sns.MessageAttributeValue{
-			"AWS.SNS.SMS.SenderID": {
-				DataType:    aws.String("String"),
-				StringValue: aws.String(s.SenderID),
-			},
 			"AWS.SNS.SMS.SMSType": {
 				DataType:    aws.String("String"),
 				StringValue: aws.String("Transactional"),

@@ -2,18 +2,24 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/fsobh/mail"
 )
 
 func main() {
+	// Initialize SNS sender with a proper alphanumeric sender ID
+	sns := mail.NewSNSSender("us-east-2", "+1-us-number")
 
-	twilio := mail.NewTwilioSender("accountSid", "authToken", "fromNumber")
-	sendGrid := mail.NewSendGridSender("apiKey", "appName", "appEmail")
-	ses := mail.NewSESSender("region", "senderEmail")
-	sns := mail.NewSNSSender("region", "senderID")
+	// Test message
+	message := "Welcome to RAA! Thank you for subscribing to service updates."
+	recipients := []string{"+1-us-number"}
 
-	fmt.Printf("Twilio Sender: %v\n", twilio)
-	fmt.Printf("SendGrid Sender: %v\n", sendGrid)
-	fmt.Printf("SES Sender: %v\n", ses)
-	fmt.Printf("SNS Sender: %v\n", sns)
+	// Test SNS
+	fmt.Println("Testing SNS SMS...")
+	err := sns.SendSMS(message, recipients)
+	if err != nil {
+		fmt.Printf("SNS SMS Error: %v\n", err)
+	} else {
+		fmt.Println("SNS SMS sent successfully!")
+	}
 }

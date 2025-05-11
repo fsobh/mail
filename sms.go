@@ -23,7 +23,7 @@ type TwilioSender struct {
 // SNSSender implements the SMSSender interface for AWS SNS
 type SNSSender struct {
 	Region           string
-	SenderID         string
+	SenderPhoneNumber string
 }
 
 // NewTwilioSender initializes a new TwilioSender
@@ -36,9 +36,9 @@ func NewTwilioSender(accountSID string, authToken string, senderPhoneNumber stri
 }
 
 // NewSNSSender initializes a new SNSSender
-func NewSNSSender(region string, senderID string) SMSSender {
+func NewSNSSender(region string, senderPhoneNumber string) SMSSender {
 	return &SNSSender{
 		Region:   region,
-		SenderID: senderID,
+		SenderPhoneNumber: senderPhoneNumber,
 	}
 } 
